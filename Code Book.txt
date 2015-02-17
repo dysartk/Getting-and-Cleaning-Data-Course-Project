@@ -1,1 +1,13 @@
-The Beginning
+This file contains descriptions of the original variables taken from the original download
+and then expands upon those original definitions where appropriate to describe the 
+additions and or modifications made along the way to compose the tidy data set.
+
+From the beginning I will mention that the file created is in the long form demonstrated
+in the FAQ section.
+
+Original Files.
+activity_labels.txt
+features.txt
+features_info.txt
+README.txt
+Data files  
