@@ -3,6 +3,7 @@ processing of the data files downloaded from:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#
 
 The original README.txt file contained this information of importance.
+
 DITEN - Universit‡ degli Studi di Genova.
 Via Opera Pia 11A, I-16145, Genoa, Italy.
 activityrecognition@smartlab.ws
@@ -51,4 +52,7 @@ The following files are available for the train and test data. Their description
 
 - 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second.  
 
+I have included this data as it provides the original link to the data url as well as the author's description of the data files.
+It is from here that this data was broken down.
 
+Much of the text included here is also included in the R script itself describing the sections of code and the operations they are performing.
