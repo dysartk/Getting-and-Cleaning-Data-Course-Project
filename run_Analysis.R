@@ -67,16 +67,16 @@ TT_combine <- rbind(Test_combine, Train_combine)
 # Select the columns of interest. All mean and standard deviation columns.
 M_SD_Select <- select(TT_combine, Subject, Label, Training_Labels, V1:V6, V41:V46, V81:V86, V121:V126, V161:V166, V201, V202, V214, V215, V227, V228, V240, V241, V253, V254, V266:V271, V294:V296, V345:V350, V373:V375, V424:V429, V452:V454, V503, V504, V516, V517, V529, V530, V542, V543, V552, V556, V557, V558, V559, V560, V561)
 # Label the columns with more descriptive terms from the features.txt file.
-colnames(M_SD_Select)[4:9] <- c("mean_bodyacc_x", "mean_bodyacc_y", "mean_bodyacc_z", "sd_bodyacc_x", "sd_bodyacc_y", "sd_bodyacc_z")
-colnames(M_SD_Select)[10:15] <- c("mean_gravacc_x", "mean_gravacc_y", "mean_gravacc_z", "sd_gravacc_x", "sd_gravacc_y", "sd_gravacc_z")
-colnames(M_SD_Select)[16:21] <- c("mean_bodyaccjerk_x", "mean_bodyaccjerk_y", "mean_bodyaccjerk_z", "sd_bodyaccjerk_x", "sd_bodyaccjerk_y", "sd_bodyaccjerk_z")
-colnames(M_SD_Select)[22:27] <- c("mean_bodygyro_x", "mean_bodygyro_y", "mean_bodygyro_z", "sd_bodyaccgyro_x", "sd_bodygyro_y", "sd_bodygyro_z")
-colnames(M_SD_Select)[28:33] <- c("mean_bodygyrojerk_x", "mean_bodygyrojerk_y", "mean_bodygyrojerk_z", "sd_bodygyrojerk_x", "sd_bodygyrojerk_y", "sd_bodygyrojerk_z")
-colnames(M_SD_Select)[34:35] <- c("mean_bodyaccmag", "sd_bodyaccmag")
-colnames(M_SD_Select)[36:37] <- c("mean_gravityaccmag", "sd_gravityaccmag")
-colnames(M_SD_Select)[38:39] <- c("mean_bodyaccjerkmag", "sd_bodyaccjerkmag")
-colnames(M_SD_Select)[40:41] <- c("mean_bodygyromag", "sd_bodygyromag")
-colnames(M_SD_Select)[42:43] <- c("mean_bodygyrojerkmag", "sd_bodygyrojerkmag")
+colnames(M_SD_Select)[4:9] <- c("mean_tbodyacc_x", "mean_tbodyacc_y", "mean_tbodyacc_z", "sd_tbodyacc_x", "sd_tbodyacc_y", "sd_tbodyacc_z")
+colnames(M_SD_Select)[10:15] <- c("mean_tgravacc_x", "mean_tgravacc_y", "mean_tgravacc_z", "sd_tgravacc_x", "sd_tgravacc_y", "sd_tgravacc_z")
+colnames(M_SD_Select)[16:21] <- c("mean_tbodyaccjerk_x", "mean_tbodyaccjerk_y", "mean_tbodyaccjerk_z", "sd_tbodyaccjerk_x", "sd_tbodyaccjerk_y", "sd_tbodyaccjerk_z")
+colnames(M_SD_Select)[22:27] <- c("mean_tbodygyro_x", "mean_tbodygyro_y", "mean_tbodygyro_z", "sd_tbodyaccgyro_x", "sd_tbodygyro_y", "sd_tbodygyro_z")
+colnames(M_SD_Select)[28:33] <- c("mean_tbodygyrojerk_x", "mean_tbodygyrojerk_y", "mean_tbodygyrojerk_z", "sd_tbodygyrojerk_x", "sd_tbodygyrojerk_y", "sd_tbodygyrojerk_z")
+colnames(M_SD_Select)[34:35] <- c("mean_tbodyaccmag", "sd_tbodyaccmag")
+colnames(M_SD_Select)[36:37] <- c("mean_tgravityaccmag", "sd_tgravityaccmag")
+colnames(M_SD_Select)[38:39] <- c("mean_tbodyaccjerkmag", "sd_tbodyaccjerkmag")
+colnames(M_SD_Select)[40:41] <- c("mean_tbodygyromag", "sd_tbodygyromag")
+colnames(M_SD_Select)[42:43] <- c("mean_tbodygyrojerkmag", "sd_tbodygyrojerkmag")
 colnames(M_SD_Select)[44:49] <- c("mean_fbodyacc_x", "mean_fbodyacc_y", "mean_fbodyacc_z", "sd_fbodyacc_x", "sd_fbodyacc_y", "sd_fbodyacc_z")
 colnames(M_SD_Select)[50:52] <- c("meanfreq_fbodyacc_x", "meanfreq_fbodyacc_y", "meanfreq_fbodyacc_z")
 colnames(M_SD_Select)[53:58] <- c("mean_fbodyaccjerk_x", "mean_fbodyaccjerk_y", "mean_fbodyaccjerk_z", "sd_fbodyaccjerk_x", "sd_fbodyaccjerk_y", "sd_fbodyaccjerk_z")
@@ -87,16 +87,16 @@ colnames(M_SD_Select)[71:72] <- c("mean_fbodyaccmag", "sd_fbodyaccmag")
 colnames(M_SD_Select)[73:74] <- c("mean_fbodyaccjerkmag", "sd_fbodyaccjerkmag")
 colnames(M_SD_Select)[75:76] <- c("mean_fbodygyromag", "sd_fbodygyromag")
 colnames(M_SD_Select)[77:78] <- c("mean_fbodygyrojerkmag", "sd_fbodygyrojerkmag")
+colnames(M_SD_Select)[79] <- c("mean_fbodybodygyrojerkmag")
 colnames(M_SD_Select)[80:85] <- c("mean_angle_bodyaccjerkmean_grav", "mean_angle_bodygyromean_grav", "mean_angle_bodygyrojerkmean_grav", "mean_angle_grav_x", "mean_angle_grav_y", "mean_angle_grav_z")
-# Save this cleaned and labeled file as a text file with write.table.
-write.table(M_SD_Select, file = "M_SD_Select", sep = " ", col.names = TRUE)
-# Save this cleaned and labeled file as a .csv file with write.csv. Not asked for in the assignment 
-# but I prefer .csv and wanted to write this file as this format as well.
-write.csv(M_SD_Select, file = "M_SD_Select.csv")
 # Remove the original numeric Label Coding column.
 M_SD_Select2 <- select(M_SD_Select, -Label)
 # Gather the columns for all of the measures into one column and create a column
 # for all of the mean values.
-tidy_M_SD_Select <- gather(M_SD_Select2, Measure, mean, -Subject, -Training_Labels)
+tidy_M_SD_Select <- gather(M_SD_Select2, Measure, Value, -Subject, -Training_Labels)
+# Group the table on the 3 identifiers.
+grp_tidy_M_SD_Select <- group_by(tidy_M_SD_Select, Subject, Training_Labels, Measure)
+# Summarize the data for the final output.
+final <- summarize(grp_tidy_M_SD_Select, mean = mean(Value))
 #Write the tidy data set. 
-write.table(tidy_M_SD_Select, file ="tidy_data_long.txt", sep = " ")
+write.table(final, file ="tidy_data_long.txt", sep = " ", row.name = FALSE)

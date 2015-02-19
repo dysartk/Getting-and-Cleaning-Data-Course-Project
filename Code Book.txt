@@ -5,11 +5,32 @@ additions and or modifications made along the way to compose the tidy data set.
 From the beginning I will mention that the file created is in the long form demonstrated
 in the FAQ section.
 
-Original Files.
-activity_labels.txt
-features.txt
-features_info.txt
-README.txt
-Data files
+Original Files:
+	activity_labels.txt
+	features.txt
+	features_info.txt
+	README.txt
+	Data files:
+		X_test.text, x_train.txt, y_test.txt, y_train.txt.
+		These files contain the values of all of the measures made by the device.
 
 Variable descriptions  
+
+Activities:
+	Source: activity_lables.txt
+	1 WALKING
+	2 WALKING_UPSTAIRS
+	3 WALKING_DOWNSTAIRS
+	4 SITTING
+	5 STANDING
+	6 LAYING
+Simple description of the subjects activities and the numeric codes. It is this file that
+serves as the source to re-code the y test and train data into a more descriptive variable.
+These activities are exactly the same in all datasets described in the flow of the 
+creation of the final data file.
+
+Subjects:
+	Source: subject_test.txt and subject_train.txt
+	Coded as numbers 1-30.
+These are also kept the same throughout the entire data set
+
